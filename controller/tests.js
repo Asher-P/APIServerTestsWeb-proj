@@ -12,5 +12,4 @@ class TestsController {
     return db.addTest(test);
   }
 }
-
 module.exports = new TestsController();
