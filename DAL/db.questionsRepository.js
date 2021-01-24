@@ -16,7 +16,8 @@ class DBQuestionsRepository {
       Math,
       data.map((question) => question.Id)
     );
-    const newQuestion = { Id: biggestId + 1, Title: question.Title, QuestionBody: question.QuestionBody };
+    const newQuestion = { Id: biggestId + 1, Title: question.Title, QuestionBody: question.QuestionBody, 
+      Answers: question.Answers, Tags: question.Tags, ExtraInfo: question.ExtraInfo, QuestionType: question.QuestionType };
     data.push(newQuestion);
     await writeFile(jsonFileName, JSON.stringify(data));
     return newQuestion;
