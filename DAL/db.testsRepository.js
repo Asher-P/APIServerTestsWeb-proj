@@ -21,7 +21,7 @@ class DBTestsRepository {
     console.log("in add test")
     let data = JSON.parse(await readFile(jsonFileName));
     const generateId = uuidv4()
-    const newTest = { Id: generateId, Questions:test.Questions };
+    const newTest = { Id: generateId, ...test };
     data.push(newTest);
     await writeFile(jsonFileName, JSON.stringify(data));
     return newTest;
