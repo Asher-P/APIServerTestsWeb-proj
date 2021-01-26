@@ -7,9 +7,7 @@ const asyncHandler = require("../helpers/asyncHandler");
 router.get(
   "/gettests",
   asyncHandler(async (req, res) => {
-    console.log(controller);
     const data = await controller.getAllTests();
-
     res.send(data);
   })
 );
