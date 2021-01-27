@@ -5,6 +5,9 @@ class TestsController {
   getAllTests() {
     return db.getAllTests();
   }
+  getTestById(id) {
+    return db.getTestById(id);
+  }
 
   // Add test to the list
   addTest(test) {

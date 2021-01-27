@@ -13,6 +13,17 @@ router.get(
     res.send(data);
   })
 );
+router.get(
+  "/gettestbyid/:id",
+  asyncHandler(async (req, res) => {
+    let id = req.params.id;
+    console.log("id",id);
+    const data = await controller.getTestById(id);
+
+    res.send(data);
+  })
+);
+
 
 // Add test to the list in json
 router.post(
