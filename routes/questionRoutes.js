@@ -12,6 +12,16 @@ router.get(
   })
 );
 
+router.get(
+  "/getquestionbyid/:id",
+  asyncHandler(async (req, res) => {
+    let id = req.params.id;
+    const data = await controller.getQuestionById(id);
+
+    res.send(data);
+  })
+);
+
 // Add question to the list in json
 router.post(
   "/addQuestion",

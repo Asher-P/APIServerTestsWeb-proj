@@ -10,6 +10,15 @@ class DBQuestionsRepository {
     return data;
   }
 
+ async getQuestionById(id) {
+   const data = JSON.parse(await readFile(jsonFileName));
+   let found = data.find(item => item.Id == id);
+    if (found)
+      return found;
+    else
+      return undefined;
+  }
+
   async addQuestion(question) {
     let data = JSON.parse(await readFile(jsonFileName));
     const biggestId = Math.max.apply(

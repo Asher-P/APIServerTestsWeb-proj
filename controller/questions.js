@@ -6,6 +6,10 @@ class QuestionsController {
     return db.getAllQuestions();
   }
 
+  getQuestionById(id) {
+    console.log("q controler");
+    return db.getQuestionById(id);
+  }
   // Add question to the list
   addQuestion(question) {
     if (!question.Title) throw "question has no title";
