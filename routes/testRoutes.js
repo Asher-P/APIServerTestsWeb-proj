@@ -7,7 +7,7 @@ const asyncHandler = require("../helpers/asyncHandler");
 router.get(
   "/gettests",
   asyncHandler(async (req, res) => {
-    console.log(controller);
+    //console.log(controller);
     const data = await controller.getAllTests();
 
     res.send(data);
@@ -33,6 +33,21 @@ router.post(
       try {
       console.log("req:" ,req.body);
       const data = await controller.addTest(req.body);
+      console.log("data:",data);
+      res.status(200).send(data);
+    } catch (err) {
+      res.status(400).send(err);
+    }
+  })
+);
+
+router.put(
+  "/edittest/:id",
+  asyncHandler(async (req, res) => {
+      console.log("in Put");
+      try {
+      console.log("req:" ,req.body);
+      const data = await controller.editTest(req.body);
       console.log("data:",data);
       res.status(200).send(data);
     } catch (err) {
