@@ -15,5 +15,11 @@ class TestsController {
     if (!test) throw "Test has no title";
     return db.addTest(test);
   }
+  editTest(newTest){
+    console.log("new Test:",newTest);
+    if (!newTest) throw "Test has no title";
+    return db.editTest(newTest);
+  }
 }
+  
 module.exports = new TestsController();
