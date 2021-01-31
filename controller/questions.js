@@ -7,7 +7,6 @@ class QuestionsController {
   }
 
   getQuestionById(id) {
-    console.log("q controler");
     return db.getQuestionById(id);
   }
   // Add question to the list

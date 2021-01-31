@@ -15,7 +15,6 @@ router.get(
   "/gettestbyid/:id",
   asyncHandler(async (req, res) => {
     let id = req.params.id;
-    console.log("id",id);
     const data = await controller.getTestById(id);
 
     res.send(data);
@@ -27,11 +26,8 @@ router.get(
 router.post(
   "/addtest",
   asyncHandler(async (req, res) => {
-      console.log("in post");
       try {
-      console.log("req:" ,req.body);
       const data = await controller.addTest(req.body);
-      console.log("data:",data);
       res.status(200).send(data);
     } catch (err) {
       res.status(400).send(err);
