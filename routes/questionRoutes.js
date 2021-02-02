@@ -17,7 +17,6 @@ router.get(
   asyncHandler(async (req, res) => {
     let id = req.params.id;
     const data = await controller.getQuestionById(id);
-
     res.send(data);
   })
 );
@@ -28,7 +27,18 @@ router.post(
   asyncHandler(async (req, res) => {
     try {
       const data = await controller.addQuestion(req.body);
-      console.log(data);
+      res.status(200).send(data);
+    } catch (err) {
+      res.status(400).send(err);
+    }
+  })
+);
+
+router.post(
+  "/editQuestion",
+  asyncHandler(async (req, res) => {
+    try {
+      const data = await controller.editQuestion(req.body);
       res.status(200).send(data);
     } catch (err) {
       res.status(400).send(err);
