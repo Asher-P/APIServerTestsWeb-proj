@@ -31,6 +31,12 @@ class DBQuestionsRepository {
     await writeFile(jsonFileName, JSON.stringify(data));
     return newQuestion;
   }
+
+  async editQuestion(question, id){
+    console.log("hurray!", question, id);
+    let data = JSON.parse(await readFile(jsonFileName));
+    console.log("data is", data);
+  }
 }
 
 module.exports = new DBQuestionsRepository();

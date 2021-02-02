@@ -17,6 +17,13 @@ class QuestionsController {
     if (!question.QuestionType) throw "question has no type? weird...";
     return db.addQuestion(question);
   }
+
+  editQuestion(questionToEdit) {
+    if(questionToEdit === undefined || questionToEdit === null) throw "Error! The Question you wanted to edit is either null or undefined"
+    let question = questionToEdit.question;
+    let id = questionToEdit.id;
+    return db.editQuestion(question,id);
+  }
 }
 
 module.exports = new QuestionsController();

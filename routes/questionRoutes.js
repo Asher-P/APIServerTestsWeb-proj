@@ -34,4 +34,16 @@ router.post(
   })
 );
 
+router.post(
+  "/editQuestion",
+  asyncHandler(async (req, res) => {
+    try {
+      const data = await controller.editQuestion(req.body);
+      res.status(200).send(data);
+    } catch (err) {
+      res.status(400).send(err);
+    }
+  })
+);
+
 module.exports = router;
