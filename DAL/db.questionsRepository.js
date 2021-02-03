@@ -33,9 +33,8 @@ class DBQuestionsRepository {
   }
 
   async editQuestion(question, id){
-    console.log("hurray!", question, id);
     let data = JSON.parse(await readFile(jsonFileName));
-    console.log("data is", data);
+    console.log(data);
   }
 }
 

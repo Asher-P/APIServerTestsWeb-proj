@@ -22,6 +22,7 @@ class QuestionsController {
     if(questionToEdit === undefined || questionToEdit === null) throw "Error! The Question you wanted to edit is either null or undefined"
     let question = questionToEdit.question;
     let id = questionToEdit.id;
+    console.log("controller: ", questionToEdit);
     return db.editQuestion(question,id);
   }
 }
