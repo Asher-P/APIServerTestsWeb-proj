@@ -34,7 +34,10 @@ class DBQuestionsRepository {
 
   async editQuestion(question, id){
     let data = JSON.parse(await readFile(jsonFileName));
-    console.log(data);
+    data.forEach(element => {
+      console.log(element.id);
+      if(element.id === id) console.log("ok great!");
+    });
   }
 }
 
