@@ -31,10 +31,9 @@ class DBExamsRepository {
     console.log("in add exam")
     let data = JSON.parse(await readFile(jsonFileName));
     const generateId = uuidv4()
-    const newExam = { Id: generateId, ...exam };
-    data.push(newExam);
+    data.push(exam);
     await writeFile(jsonFileName, JSON.stringify(data));
-    return newExam;
+    return exam;
   }
 
 }
