@@ -34,7 +34,19 @@ class DBQuestionsRepository {
 
   async editQuestion(question, id){
     let data = JSON.parse(await readFile(jsonFileName));
-    console.log(data);
+    for (let index = 0; index < data.length; index++) {
+      if(id === data[index].Id){
+        data[index].Title = question.Title;
+        data[index].QuestionBody = question.QuestionBody;
+        data[index].Tags = question.Tags;
+        data[index].ExtraInfo = question.ExtraInfo;
+        data[index].QuestionType = question.QuestionType;
+        data[index].LastUpdated = question.LastUpdated;
+        data[index].Answers = question.Answers;
+      }
+    }
+    await writeFile(jsonFileName, JSON.stringify(data));
+    return question;
   }
 }
 
