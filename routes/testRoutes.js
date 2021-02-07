@@ -20,6 +20,15 @@ router.get(
     res.send(data);
   })
 );
+router.get(
+  "/getorganizationtests/:id",
+  asyncHandler(async (req, res) => {
+    let id = req.params.id;
+    const data = await controller.getOrgTests(id);
+
+    res.send(data);
+  })
+);
 
 
 // Add test to the list in json

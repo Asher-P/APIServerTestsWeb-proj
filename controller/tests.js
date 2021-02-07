@@ -8,6 +8,9 @@ class TestsController {
   getTestById(id) {
     return db.getTestById(id);
   }
+  getOrgTests(id) {
+    return db.getOrgTests(id);
+  }
 
   // Add test to the list
   addTest(test) {

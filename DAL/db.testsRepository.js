@@ -26,6 +26,15 @@ class DBTestsRepository {
     else
       return undefined;
   }
+ async getOrgTests(id) {
+    const data = JSON.parse(await readFile(jsonFileName));
+    let found = data.filter(t => Number(t.creatorOrganization.Id) === Number(id));
+    console.log(found);
+    if (found)
+      return found;
+    else
+      return undefined;
+  }
 
   async addTest(test) {
     console.log("in add test")
